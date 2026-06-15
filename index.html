@@ -5,35 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Para você</title>
 
-<!--
-  ===========================================================================
-  COMO PERSONALIZAR SA PORRA KKKKKKKKKK
-  ===========================================================================
-  1) MÚSICAS:
-     Coloque os arquivos de áudio na MESMA PASTA deste arquivo HTML,
-     com os nomes:
-       - "minha-musica.mp3"   -> sua música favorita
-       - "musica-dela.mp3"    -> música favorita dela
-     (Você pode trocar esses nomes lá embaixo, no objeto CONFIG do <script>.)
-
-  2) TÍTULOS DOS BOTÕES:
-     No objeto CONFIG, troque "label" pelo nome real das músicas
-     (ex: "Lua de São Jorge - Skank").
-
-  3) NOME DELA / MENSAGEM PRINCIPAL:
-     Procure por [EDITAR] na seção <header class="hero"> e troque o texto.
-
-  4) CARTA:
-     Procure por [ESCREVA SUA CARTA AQUI] dentro do <div id="letterBody">
-     e escreva o texto da sua carta. Pode usar várias linhas, parágrafos
-     (cada parágrafo dentro de uma tag <p>...</p>).
-
-  5) MENSAGENS DO DIA:
-     No objeto CONFIG, a lista "dailyMessages" tem frases que mudam
-     automaticamente todos os dias. Edite, adicione ou remova como quiser.
-  ===========================================================================
--->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -76,7 +47,6 @@
     overflow-x: hidden;
   }
 
-
   #particles{
     position: fixed;
     inset:0;
@@ -84,16 +54,16 @@
     z-index:0;
     overflow:hidden;
   }
-.particle{
-  position:absolute;
-  bottom:-10%;
-  color: var(--particle-color, var(--gold));   
-  opacity:0;
-  font-size: 14px;
-  animation: floatUp linear infinite;
-  transition: color 1.6s ease;                 
-  will-change: transform, opacity;
-}
+  .particle{
+    position:absolute;
+    bottom:-10%;
+    color: var(--particle-color, var(--gold));
+    opacity:0;
+    font-size: 14px;
+    animation: floatUp linear infinite;
+    transition: color 1.6s ease;
+    will-change: transform, opacity;
+  }
   @keyframes floatUp{
     0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity:0; }
     10%  { opacity:0.35; }
@@ -120,7 +90,6 @@
     100% { opacity:0;    transform: scale(1.6); }
   }
 
- 
   main{
     position: relative;
     z-index: 2;
@@ -131,7 +100,6 @@
     flex-direction:column;
     gap: 40px;
   }
-
 
   .hero{
     text-align:center;
@@ -169,7 +137,63 @@
     margin: 6px auto 0;
   }
 
-  
+  /* contador */
+  .counter-card{
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+  }
+  .counter-label{
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .counter-numbers{
+    display:flex;
+    justify-content:center;
+    gap: 6px;
+  }
+  .counter-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    min-width: 52px;
+  }
+  .counter-unit .num{
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(30px, 9vw, 42px);
+    font-weight:500;
+    line-height:1;
+    color: var(--text);
+  }
+  .counter-unit .unit-label{
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .counter-sep{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold-soft);
+    align-self:flex-start;
+    padding-top: 4px;
+    line-height:1;
+  }
+  .counter-since{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size: 14px;
+    color: var(--gold);
+  }
+
   .player-section{
     display:flex;
     flex-direction:column;
@@ -209,7 +233,6 @@
     transition: border-color .35s ease, box-shadow .35s ease, transform .15s ease;
   }
   .song-btn:active{ transform: scale(0.985); }
-
   .song-btn .tag{
     font-size: 11px;
     letter-spacing: 0.18em;
@@ -223,14 +246,12 @@
     opacity:.6;
     transition: opacity .35s ease, transform .35s ease;
   }
-
   .song-btn--his.active{
     border-color: var(--wine-glow);
     box-shadow: 0 0 0 1px var(--wine-glow) inset, 0 0 24px -6px var(--wine-glow);
   }
   .song-btn--his.active .tag{ color: var(--wine-glow); }
   .song-btn--his.active .icon{ opacity:1; transform: scale(1.08); }
-
   .song-btn--hers.active{
     border-color: var(--blue-glow);
     box-shadow: 0 0 0 1px var(--blue-glow) inset, 0 0 24px -6px var(--blue-glow);
@@ -238,7 +259,6 @@
   .song-btn--hers.active .tag{ color: var(--blue-glow); }
   .song-btn--hers.active .icon{ opacity:1; transform: scale(1.08); }
 
- 
   .player{
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -297,7 +317,6 @@
     font-size: 0.8em;
   }
 
-
   .letter-section{
     display:flex;
     flex-direction:column;
@@ -337,7 +356,6 @@
     padding-bottom: 12px;
   }
 
-
   .modal-overlay{
     position: fixed;
     inset:0;
@@ -371,7 +389,6 @@
     box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6);
   }
   .modal-overlay.open .modal-card{ transform: translateY(0) scale(1); }
-
   .modal-card h2{
     font-family:'Cormorant Garamond', serif;
     font-style: italic;
@@ -425,19 +442,37 @@
 
 <main>
 
-
   <header class="hero">
-    <p class="eyebrow">12 de junho · Dia dos Namorados</p>
-
+    <p class="eyebrow" id="heroEyebrow">carregando...</p>
     <h1>Seja bem vinda! Meu amor</h1>
-        
-
     <p class="sub">Um pequeno espaço feito pra quando você precisar pensar em mim 🥰</p>
     <div class="divider"></div>
   </header>
 
+  <!-- CONTADOR -->
+  <div class="counter-card">
+    <p class="counter-label">juntos há</p>
+    <div class="counter-numbers">
+      <div class="counter-unit">
+        <span class="num" id="cntYears">0</span>
+        <span class="unit-label">anos</span>
+      </div>
+      <span class="counter-sep">·</span>
+      <div class="counter-unit">
+        <span class="num" id="cntMonths">0</span>
+        <span class="unit-label">meses</span>
+      </div>
+      <span class="counter-sep">·</span>
+      <div class="counter-unit">
+        <span class="num" id="cntDays">0</span>
+        <span class="unit-label">dias</span>
+      </div>
+    </div>
+    <p class="counter-since">Estou animado pra agente ficar mais tempo junto♥</p>
+  </div>
+
   <section class="player-section">
-    <p class="section-title">escolha uma surpresa </p>
+    <p class="section-title">escolha uma surpresa</p>
 
     <div class="song-buttons">
       <button class="song-btn song-btn--his" data-track="his" type="button">
@@ -474,7 +509,6 @@
       <p class="file-hint" id="fileHint"></p>
     </div>
 
-
     <p class="daily-message" id="dailyMessage"></p>
   </section>
 
@@ -496,8 +530,7 @@
     <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
     <h2>Para você</h2>
     <div class="letter-body" id="letterBody">
-  
-      <p style=" font-style: normal; font-size: 20px;">
+      <p style="font-style: normal; font-size: 20px;">
         Oiii, olha meu bem, como eu já escrevi pra você antes queria que soubesse que não sou muito bom escrevendo cartas kkkk, mas vou tentar por você,
         Acontece que nesses tempos eu venho pensando muito e MUITO mesmo em algo legal pra fazer pra ti, já que você sempre ARRASA nos presentes, então acabei
         decidindo fazer algo sobre nós nesse dia tão especial, por isso eu criei esse espaço, meio limitado um pouco feio e com suas incriveis 679 linhas de codigo kkkk,
@@ -509,9 +542,7 @@
         e ele me fascina, é meu espaço favorito, e minha pessoa favorita é meu amorzinho, Leticia é o nome dessa pessoa maravilhosa, e por meio dessas palavras na sua tela, queria que soubesse que eu sou MUITO e infinitamente apaixonado por vc,
         coisa que nunca vai mudar, eu te amo, e dedico cada segundo da minha vida a você, e com você. Leticia não importa quando você leia isso, ou entre aqui, eu só queria que soubesse, que você é sim tudo isso, extamente como eu vejo, merce até mais, e você é tudo, uma menina
         incrivel e extremamente especial, você merece o mundo, e eu sou muito grato por ter você, agora queria que aproveitasse esse espaço que eu criei pra ti kkkkkk, foi tudo feito para você e somente para você; <br>
-
         Com todo amor do mundo.
-
       </p>
     </div>
     <p class="signature">— Seu namorado, João Vitor</p>
@@ -520,12 +551,13 @@
 
 
 <script>
-
 const CONFIG = {
+  
+  startDate: new Date(2024, 11, 31), 
 
   tracks: {
-    his:  { file: "minha-musica.mp3.mp3", label: "Tocar Surpresa",  display: "Dedico a você hoje Bela Jasmin" },
-    hers: { file: "musica-dela.mp3",  label: "Tocar Surpresa",  display: "Você dedicou pra mim 7 de novembro de 2025" }
+    his:  { file: "minha-musica.mp3.mp3", label: "Tocar Surpresa", display: "Dedico a você hoje Bela Jasmin" },
+    hers: { file: "musica-dela.mp3",      label: "Tocar Surpresa", display: "Você dedicou pra mim 7 de novembro de 2025" }
   },
 
   dailyMessages: [
@@ -563,62 +595,107 @@ const CONFIG = {
 };
 
 
+(function setEyebrow(){
+  const el = document.getElementById('heroEyebrow');
+  const now = new Date();
+  const day = now.getDate();
+  const month = now.toLocaleString('pt-BR', { month: 'long' });
+  const year = now.getFullYear();
+
+  
+  const special = {
+    '06-12': '12 de junho · Dia dos Namorados 💕',
+    '12-31': '31 de dezembro · nosso aniversário 🥂',
+    '01-01': '1 de janeiro · feliz ano novo juntos 🎆',
+  };
+
+  const key = String(now.getMonth()+1).padStart(2,'0') + '-' + String(day).padStart(2,'0');
+  el.textContent = special[key] || `${day} de ${month} de ${year}`;
+})();
+
+/* ── contador de relacionamento ── */
+(function setupCounter(){
+  function calcDiff(start, end){
+    let years  = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth()    - start.getMonth();
+    let days   = end.getDate()     - start.getDate();
+
+    if(days < 0){
+      months--;
+      const prev = new Date(end.getFullYear(), end.getMonth(), 0);
+      days += prev.getDate();
+    }
+    if(months < 0){ years--; months += 12; }
+    return { years, months, days };
+  }
+
+  function update(){
+    const now = new Date();
+    const d = calcDiff(CONFIG.startDate, now);
+    document.getElementById('cntYears').textContent  = d.years;
+    document.getElementById('cntMonths').textContent = d.months;
+    document.getElementById('cntDays').textContent   = d.days;
+  }
+
+  update();
+  
+  const now = new Date();
+  const msToMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1) - now;
+  setTimeout(() => { update(); setInterval(update, 86400000); }, msToMidnight);
+})();
+
+/* ── mensagem do dia ── */
 (function setDailyMessage(){
   const el = document.getElementById('dailyMessage');
   const msgs = CONFIG.dailyMessages;
-
   const today = new Date();
   const start = new Date(today.getFullYear(), 0, 0);
-  const diff = today - start;
-  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-
+  const dayOfYear = Math.floor((today - start) / (1000*60*60*24));
   const index = dayOfYear % msgs.length;
-  el.innerHTML = `<span class="quote-mark">“</span>${msgs[index]}<span class="quote-mark">”</span>`;
-
+  el.innerHTML = `<span class="quote-mark">"</span>${msgs[index]}<span class="quote-mark">"</span>`;
   requestAnimationFrame(() => el.classList.add('show'));
 })();
 
+/* ── player ── */
 (function setupPlayer(){
-  const audio = document.getElementById('audio');
-  const player = document.getElementById('player');
-  const nowPlaying = document.getElementById('nowPlaying');
-  const fileHint = document.getElementById('fileHint');
-  const dissolve = document.getElementById('dissolve');
+  const audio     = document.getElementById('audio');
+  const player    = document.getElementById('player');
+  const nowPlaying= document.getElementById('nowPlaying');
+  const fileHint  = document.getElementById('fileHint');
+  const dissolve  = document.getElementById('dissolve');
 
-  document.getElementById('labelHis').textContent = CONFIG.tracks.his.label;
+  document.getElementById('labelHis').textContent  = CONFIG.tracks.his.label;
   document.getElementById('labelHers').textContent = CONFIG.tracks.hers.label;
 
   const buttons = document.querySelectorAll('.song-btn');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const key = btn.dataset.track; 
+      const key   = btn.dataset.track;
       const track = CONFIG.tracks[key];
 
-      
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-   
       const color1 = key === 'his' ? 'var(--wine-glow)' : 'var(--blue-glow)';
-      const color2 = key === 'his' ? 'var(--wine)' : 'var(--blue)';
+      const color2 = key === 'his' ? 'var(--wine)'      : 'var(--blue)';
       dissolve.style.setProperty('--c1', color1);
       dissolve.style.setProperty('--c2', color2);
       dissolve.classList.remove('run');
-    
       void dissolve.offsetWidth;
       dissolve.classList.add('run');
-document.documentElement.style.setProperty('--particle-color', color1);
 
-      // configura e toca o áudio (clique do usuário = permitido)
+      document.documentElement.style.setProperty('--particle-color', color1);
+
+
+      const speedFactor = key === 'his' ? 0.5 : 1.6;
+      window.setParticleSpeed && window.setParticleSpeed(speedFactor);
+
       audio.src = track.file;
       nowPlaying.textContent = track.display;
       player.hidden = false;
       fileHint.textContent = '';
-
-      audio.play().catch(() => {
-        
-      });
+      audio.play().catch(() => {});
     });
   });
 
@@ -629,42 +706,43 @@ document.documentElement.style.setProperty('--particle-color', color1);
   });
 })();
 
-
+/* ── carta ── */
 (function setupLetter(){
-  const overlay = document.getElementById('modalOverlay');
-  const openBtn = document.getElementById('letterBtn');
+  const overlay  = document.getElementById('modalOverlay');
+  const openBtn  = document.getElementById('letterBtn');
   const closeBtn = document.getElementById('modalClose');
-
-  openBtn.addEventListener('click', () => overlay.classList.add('open'));
+  openBtn.addEventListener('click',  () => overlay.classList.add('open'));
   closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.remove('open');
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') overlay.classList.remove('open');
-  });
+  overlay.addEventListener('click',  (e) => { if(e.target===overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown',(e) => { if(e.key==='Escape') overlay.classList.remove('open'); });
 })();
 
-
+/* ── partículas ── */
 (function setupParticles(){
   const container = document.getElementById('particles');
-  const symbols = ['♥', '·', '✦'];
-  const count = window.innerWidth < 480 ? 10 : 16;
+  const symbols   = ['♥','·','✦'];
+  const count     = window.innerWidth < 480 ? 10 : 16;
 
-  for (let i = 0; i < count; i++) {
+  for(let i=0; i<count; i++){
     const span = document.createElement('span');
     span.className = 'particle';
-    span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    span.style.left = Math.random() * 100 + '%';
-    span.style.fontSize = (10 + Math.random() * 12) + 'px';
-    span.style.setProperty('--drift', (Math.random() * 60 - 30) + 'px');
-    const baseDuration = 14 + Math.random() * 14;
-span.dataset.baseDuration = baseDuration;
-span.style.animationDuration = baseDuration + 's';
-    span.style.animationDelay = (Math.random() * -20) + 's';
+    span.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    span.style.left = Math.random()*100+'%';
+    span.style.fontSize = (10+Math.random()*12)+'px';
+    span.style.setProperty('--drift',(Math.random()*60-30)+'px');
+    const baseDuration = 14 + Math.random()*14;
+    span.dataset.baseDuration = baseDuration;
+    span.style.animationDuration = baseDuration+'s';
+    span.style.animationDelay = (Math.random()*-20)+'s';
     container.appendChild(span);
-    
   }
+
+  window.setParticleSpeed = function(factor){
+    document.querySelectorAll('.particle').forEach(p => {
+      const base = parseFloat(p.dataset.baseDuration);
+      p.style.animationDuration = (base * factor)+'s';
+    });
+  };
 })();
 </script>
 
